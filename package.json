@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js",
+    "lint": "standard"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -13,5 +14,8 @@
   },
   "engines": {
     "node": ">=4.3.2"
+  },
+  "devDependencies": {
+    "standard": "^9.0.0"
   }
 }
