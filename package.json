@@ -1,9 +1,11 @@
 {
   "name": "naivechain",
   "version": "1.0.0",
-  "description": "",
+  "description": "Naive blockchain demonstration",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js",
+    "lint": "standard",
+    "compose:up": "docker-compose up"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -12,6 +14,9 @@
     "ws": "^1.1.0"
   },
   "engines": {
-    "node": ">=4.3.2"
+    "node": ">=6"
+  },
+  "devDependencies": {
+    "standard": "^9.0.0"
   }
 }
