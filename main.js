@@ -145,7 +145,7 @@ var connectToPeers = (newPeers) => {
 };
 
 var handleBlockchainResponse = (message) => {
-    var receivedBlocks = JSON.parse(message.data).sort((b1, b2) => (b1.index > b2.index));
+    var receivedBlocks = JSON.parse(message.data).sort((b1, b2) => (b1.index - b2.index));
     var latestBlockReceived = receivedBlocks[receivedBlocks.length - 1];
     var latestBlockHeld = getLatestBlock();
     if (latestBlockReceived.index > latestBlockHeld.index) {
