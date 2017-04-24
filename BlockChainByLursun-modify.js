@@ -265,8 +265,8 @@ var isValidChain = (blockchainToValidate) => {
     //暫時的區塊鏈(比對用)
     var tempBlocks = [blockchainToValidate[0]];
     for (var i = 1; i < blockchainToValidate.length; i++) {
-        //依序驗證每一個區塊 ##新改原BUG
-        if (blockchain[i]!=null && blockchain[i].hash === blockchainToValidate[i].hash && isValidNewBlock(blockchainToValidate[i], tempBlocks[i - 1])) {
+        //依序驗證每一個區塊
+        if (  isValidNewBlock(blockchainToValidate[i], tempBlocks[i - 1]) ) {
             tempBlocks.push(blockchainToValidate[i]);
         } else {
             return false;

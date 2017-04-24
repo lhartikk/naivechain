@@ -208,7 +208,7 @@ var replaceChain = (newBlocks) => {
     //驗證 && 對方區塊鏈高度>自己區塊鏈高度
     if (isValidChain(newBlocks) && newBlocks.length > blockchain.length) {
         console.log('Received blockchain is valid. Replacing current blockchain with received blockchain');
-        //缺點:不去判斷是否為不同區塊鏈,只要 對方高度比自己高 ,及會整條鍊被覆蓋
+        //只要 對方高度比自己高 ,及會整條鍊被覆蓋
         blockchain = newBlocks;
         broadcast(responseLatestMsg());
     } else {
