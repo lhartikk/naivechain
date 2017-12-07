@@ -120,7 +120,7 @@ var calculateHash = (index, previousHash, timestamp, data, nonce) => {
         return {hash: CryptoJS.SHA256(index + previousHash + timestamp + data + nonce).toString(), nonce: nonce};
     }
     while(true){
-        nonce = Math.random();
+        nonce = Math.floor(Math.random() * 899999) + 100000;
         var hash = CryptoJS.SHA256(index + previousHash + timestamp + data + nonce).toString();
         if(hash.toString().startsWith("0000")){
             return {hash: hash, nonce: nonce};
