@@ -110,7 +110,13 @@ var calculateHashForBlock = (block) => {
 };
 
 var calculateHash = (index, previousHash, timestamp, data) => {
-    return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
+    while(true){
+        var nonce = Math.random();
+        var hash = CryptoJS.SHA256(index + previousHash + timestamp + data + nonce).toString();
+        if(hash.toString().startsWith("0000")){
+            return hash;
+        }
+    }
 };
 
 var addBlock = (newBlock) => {
