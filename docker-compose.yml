@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3001:3001"
+    - "6001:6001"
   node2:
     environment:
       - PEERS=ws://node1:6001
@@ -14,6 +15,7 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3002:3001"
+    - "6002:6001"
     links:
       - node1:node1
   node3:
@@ -24,5 +26,6 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3003:3001"
+    - "6003:6001"
     links:
       - node2:node2
