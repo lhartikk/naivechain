@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-4">
+                <div class="col-sm-6">
+                    host:    
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" id="host" value="127.0.0.1" />
+                </div>
+                <div class="col-sm-6">port: </div>
+                <div class="col-sm-6"> <input type="text" id="port" value="3001" /></div>
+                <div class="col-sm-6">peer (ip:port) : </div>
+                <div class="col-sm-6">ws://<input id="peeripport"> </div>
+                <hr/>
+                <div class="col-sm-6">addPeerButton: </div>
+                <div class="col-sm-6"> <input type="button" id="addPeerBtn" value="addPeer" /> </div>
+                <hr/>
+                <div class="col-sm-6">sendData: </div>
+                <div class="col-sm-6"><textarea rows="3" id="sendData" style="width:100%"></textarea> </div>
+                <div class="col-sm-6">snedDataButton: </div>
+                <div class="col-sm-6"> <input type="button" id="sendBtn" value="sendData" /> </div>
+                output:<br/>
+                <textarea rows="18" id="output" style="width:100%;"></textarea>
+            </div>
+            <div class="col-sm-4">
+                blockchain:
+                <textarea rows="18" id="blockchain" style="width:100%;"></textarea>
+                peers:
+                <textarea rows="18" id="peers" style="width:100%;"></textarea>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.5/Rx.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" defer></script>
+        <script src="index.js"></script>
+    </body>
+</html>
