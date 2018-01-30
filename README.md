@@ -20,6 +20,10 @@ Check also [this blog post](https://medium.com/@lhartikk/a-blockchain-in-200-lin
 
 ![alt tag](naivechain_components.png)
 
+
+### Naivecoin
+For a more extensive tutorial about blockchains, you can check the project [Naivecoin](https://lhartikk.github.io/). It is based on Naivechain and implements for instance Proof-of-work, transactions and wallets.
+
 ### Quick start
 (set up two connected nodes and mine 1 block)
 ```
