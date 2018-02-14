@@ -7,14 +7,13 @@
 ### 블록체인은 무엇인가?
 [From Wikipedia](https://ko.wikipedia.org/wiki/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8) : 블록체인은 조작 및 수정 작업으로부터 보호되는 블럭이라는 지속적으로 증가하는 기록저장소를 유지하는 분산 데이터베이스입니다.
 
-### Key concepts of Naivechain
-Check also [this blog post](https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54#.dttbm9afr5) for a more detailed overview of the key concepts
-* HTTP interface to control the node
-* Use Websockets to communicate with other nodes (P2P)
-* Super simple "protocols" in P2P communication
-* Data is not persisted in nodes
-* No proof-of-work or proof-of-stake: a block can be added to the blockchain without competition
-
+### Naivechain의 주요개념!
+체크하기 [this blog post](https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54#.dttbm9afr5) 주요개념에 대해 상제한 정보를 보기
+* 노드를 제어하는 HTTP 인터페이스
+* 다른 노드들을 통신하기 위해 웹 소켓(P2P)를 사용
+* P2P 통신의 매우매우매우매우 슈퍼 울트라 간단한 프로토콜
+* 노드에 대아토거 유지가 되지 않음
+* 작업 허가 또는 브레이크에 대한 보호 조치가 없음: 블록을 경쟁없이 블록에 추가할 수 있음
 
 ![alt tag](naivechain_blockchain.png)
 
@@ -22,10 +21,10 @@ Check also [this blog post](https://medium.com/@lhartikk/a-blockchain-in-200-lin
 
 
 ### Naivecoin
-For a more extensive tutorial about blockchains, you can check the project [Naivecoin](https://lhartikk.github.io/). It is based on Naivechain and implements for instance Proof-of-work, transactions and wallets.
+블록체인에 대한 광범위한 자습서를 보시고 싶으면 이 프로젝트를 체크해주세요 [Naivecoin](https://lhartikk.github.io/). 이 코인의 네이브체인 기반이며 거래처, 지갑 같은 도구를 제공합니다.
 
-### Quick start
-(set up two connected nodes and mine 1 block)
+### 빠른 시작
+(연결된 노드 2개와 블록 1개를 설정)
 ```
 npm install
 HTTP_PORT=3001 P2P_PORT=6001 npm start
@@ -33,8 +32,8 @@ HTTP_PORT=3002 P2P_PORT=6002 PEERS=ws://localhost:6001 npm start
 curl -H "Content-type:application/json" --data '{"data" : "Some data to the first block"}' http://localhost:3001/mineBlock
 ```
 
-### Quick start with Docker
-(set up three connected nodes and mine a block)
+### 도커를 이용하여 빠른 시작
+(3개의 3노드를 설정하고 한 블록을 설정)
 ###
 ```sh
 docker-compose up
