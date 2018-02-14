@@ -1,11 +1,11 @@
-# Naivechain - a blockchain implementation in 200 lines of code
+# Naivechain - 블록체인 실행 200줄 코드
 
-### Motivation
-All the current implementations of blockchains are tightly coupled with the larger context and problems they (e.g. Bitcoin or Ethereum) are trying to solve. This makes understanding blockchains a necessarily harder task, than it must be. Especially source-code-wisely. This project is an attempt to provide as concise and simple implementation of a blockchain as possible.
-
+### 개발 동기
+모든 현재 구현된 블록체인들은 밀접하게 결합되어있고 개발자들이 해결하려고 하는 문제들(ex: 비트코인, 이더리움)들과 밀접하게 결합되게 됩니다.
+그들의 생각을 소스코드로 이해하기는 어려운 일입니다. 이 프로젝트는 가능한 블록체인이 간결하고 단순하게 실행하기 위한 것입니다.
  
-### What is blockchain
-[From Wikipedia](https://en.wikipedia.org/wiki/Blockchain_(database)) : Blockchain is a distributed database that maintains a continuously-growing list of records called blocks secured from tampering and revision.
+### 블록체인은 무엇인가?
+[From Wikipedia](https://ko.wikipedia.org/wiki/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8) : 블록체인은 조작 및 수정 작업으로부터 보호되는 블럭이라는 지속적으로 증가하는 기록저장소를 유지하는 분산 데이터베이스입니다.
 
 ### Key concepts of Naivechain
 Check also [this blog post](https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54#.dttbm9afr5) for a more detailed overview of the key concepts
