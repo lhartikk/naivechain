@@ -194,9 +194,20 @@ var isValidChain = (blockchainToValidate) => {
 var getLatestBlock = () => blockchain[blockchain.length - 1];
 var queryChainLengthMsg = () => ({'type': MessageType.QUERY_LATEST});
 var queryAllMsg = () => ({'type': MessageType.QUERY_ALL});
-var responseChainMsg = () =>({
-    'type': MessageType.RESPONSE_BLOCKCHAIN, 'data': JSON.stringify(blockchain)
-});
+var responseChainMsg = () => {
+    if (blockchain.length > 3) {
+      // Hack start here
+      const [ genesisBlock, secondBlock, ...remainingBlocks ] = blockchain;
+
+      const addedBlock = { data: 'its a hack 💩' };
+
+      const corruptedBlockchain = [ genesisBlock, secondBlock, addedBlock, ...remainingBlocks ];
+
+      return { 'type': MessageType.RESPONSE_BLOCKCHAIN, 'data': JSON.stringify(corruptedBlockchain) };
+    }
+
+    return { 'type': MessageType.RESPONSE_BLOCKCHAIN, 'data': JSON.stringify(blockchain) };
+};
 var responseLatestMsg = () => ({
     'type': MessageType.RESPONSE_BLOCKCHAIN,
     'data': JSON.stringify([getLatestBlock()])
