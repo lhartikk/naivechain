@@ -177,7 +177,7 @@ var replaceChain = (newBlocks) => {
 };
 
 var isValidChain = (blockchainToValidate) => {
-    if (JSON.stringify(blockchainToValidate[0]) !== JSON.stringify(getGenesisBlock())) {
+    if (calculateHashForBlock(blockchainToValidate[0]) !== getGenesisBlock().hash) {
         return false;
     }
     var tempBlocks = [blockchainToValidate[0]];
