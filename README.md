@@ -24,6 +24,11 @@ Check also [this blog post](https://medium.com/@lhartikk/a-blockchain-in-200-lin
 ### Naivecoin
 For a more extensive tutorial about blockchains, you can check the project [Naivecoin](https://lhartikk.github.io/). It is based on Naivechain and implements for instance Proof-of-work, transactions and wallets.
 
+### Other implementations
+
+Python: [pynaivechain](https://github.com/koshikraj/pynaivechain) by [koshik raj](https://github.com/koshikraj)
+
+
 ### Quick start
 (set up two connected nodes and mine 1 block)
 ```
