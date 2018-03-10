@@ -3,21 +3,16 @@ const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const fs = require('fs');
 
-let nodeModules = {};
+const binaries  = (packageName) => ['.bin'].includes(packageName) === false;
+const moduleObj = (acc, curr, index) => ({ ...acc, [curr]: `commonjs ${curr}` });
 
-fs.readdirSync('node_modules')
-  .filter(function(x) {
-    return ['.bin'].includes(x) === false;
-  })
-  .forEach(function(mod) {
-    nodeModules[mod] = 'commonjs ' + mod;
-  });
+let nodeModules = fs.readdirSync('node_modules').filter(binaries).reduce(moduleObj, {});
 
 module.exports = {
 	entry: './main.js',
 
 	output: {
-		filename: 'x.js',
+		filename: 'index.js',
 		path: path.resolve(__dirname, 'dist')
 	},
 

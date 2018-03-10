@@ -7,7 +7,7 @@
     "node": ">=4.3.2"
   },
   "scripts": {
-    "start": "node x.js",
+    "start": "node index.js",
     "build": "rimraf ./dist/* && NODE_ENV=production webpack --progress -p"
   },
   "dependencies": {

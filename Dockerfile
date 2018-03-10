@@ -6,7 +6,7 @@ COPY package.json .
 
 COPY package-lock.json .
 
-COPY ./dist/x.js .
+COPY ./dist/index.js .
 
 RUN npm install --quiet
 
