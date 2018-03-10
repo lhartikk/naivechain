@@ -1,7 +1,11 @@
 {
   "name": "naivechain",
   "version": "1.0.0",
-  "description": "",
+  "description": "blockchain implementation in 200 lines 💻",
+  "license" : "Apache-2.0",
+  "engines": {
+    "node": ">=4.3.2"
+  },
   "scripts": {
     "start": "node main.js"
   },
@@ -10,8 +14,5 @@
     "crypto-js": "^3.1.6",
     "express": "~4.11.1",
     "ws": "^1.1.0"
-  },
-  "engines": {
-    "node": ">=4.3.2"
   }
 }
