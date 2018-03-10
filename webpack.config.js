@@ -23,13 +23,7 @@ module.exports = {
 		]
 	},
 
-	node: {
-  	fs: true,
-		bufferutil: true,
-		"utf-8-validate": true,
-		net: true,
-		tls: true
-	},
+	externals: ['body-parser', 'crypto-js', 'express', 'ws'],
 
 	plugins: [new UglifyJSPlugin()]
 };
