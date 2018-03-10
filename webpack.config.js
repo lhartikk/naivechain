@@ -1,6 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const fs = require('fs');
+
+let nodeModules = {};
+
+fs.readdirSync('node_modules')
+  .filter(function(x) {
+    return ['.bin'].includes(x) === false;
+  })
+  .forEach(function(mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
 
 module.exports = {
 	entry: './main.js',
@@ -23,7 +34,9 @@ module.exports = {
 		]
 	},
 
-	externals: ['body-parser', 'crypto-js', 'express', 'ws'],
+	target: 'node',
+
+	externals: nodeModules,
 
 	plugins: [new UglifyJSPlugin()]
 };
