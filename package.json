@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "test": "jest",
     "build": "rimraf ./dist/* && NODE_ENV=production webpack --progress -p"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.7",
+    "jest": "^22.4.2",
     "node-sass": "^4.7.2",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
