@@ -1,7 +1,7 @@
-const webpack = require('webpack');
-const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const fs = require('fs');
+const path = require('path');
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const binaries  = (packageName) => ['.bin'].includes(packageName) === false;
 const moduleObj = (acc, curr, index) => ({ ...acc, [curr]: `commonjs ${curr}` });
