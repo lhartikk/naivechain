@@ -6,6 +6,10 @@
   "engines": {
     "node": ">=8.6.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jhamPac/naivechain.git"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "jest",
