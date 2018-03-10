@@ -13,15 +13,22 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: {},
+				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader',
-
 				options: {
 					presets: ['env']
 				}
 			}
 		]
+	},
+
+	node: {
+  	fs: true,
+		bufferutil: true,
+		"utf-8-validate": true,
+		net: true,
+		tls: true
 	},
 
 	plugins: [new UglifyJSPlugin()]
