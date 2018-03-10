@@ -4,7 +4,7 @@
   "description": "blockchain implementation in 200 lines 💻",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=4.3.2"
+    "node": ">=8.6.0"
   },
   "scripts": {
     "start": "node index.js",
