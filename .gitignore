@@ -62,4 +62,5 @@ typings/
 .DS_Store
 
 # Misc
+./dist
 package-lock.json

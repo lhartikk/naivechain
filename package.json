@@ -2,17 +2,30 @@
   "name": "naivechain",
   "version": "1.0.0",
   "description": "blockchain implementation in 200 lines 💻",
-  "license" : "Apache-2.0",
+  "license": "Apache-2.0",
   "engines": {
     "node": ">=4.3.2"
   },
   "scripts": {
-    "start": "node main.js"
+    "start": "node x.js",
+    "build": "NODE_ENV=production webpack --progress -p"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "crypto-js": "^3.1.6",
     "express": "~4.11.1",
     "ws": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
   }
 }
