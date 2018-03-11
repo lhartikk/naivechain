@@ -9,7 +9,7 @@ const moduleObj = (acc, curr, index) => ({ ...acc, [curr]: `commonjs ${curr}` })
 let nodeModules = fs.readdirSync('node_modules').filter(binaries).reduce(moduleObj, {});
 
 module.exports = {
-	entry: './main.js',
+	entry: './source.js',
 
 	externals: nodeModules,
 
@@ -27,7 +27,7 @@ module.exports = {
 	},
 
 	output: {
-		filename: 'index.js',
+		filename: 'compiled.js',
 		path: path.resolve(__dirname, 'dist')
 	},
 
