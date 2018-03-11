@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3001:3001"
+    image: jordan
+    container_name: jordan
   node2:
     environment:
       - PEERS=ws://node1:6001
@@ -14,6 +16,8 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3002:3001"
+    image: scottie
+    container_name: scottie
     links:
       - node1:node1
   node3:
@@ -24,5 +28,7 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3003:3001"
+    image: rodman
+    container_name: rodman
     links:
       - node2:node2
