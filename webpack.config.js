@@ -11,10 +11,7 @@ let nodeModules = fs.readdirSync('node_modules').filter(binaries).reduce(moduleO
 module.exports = {
 	entry: './main.js',
 
-	output: {
-		filename: 'index.js',
-		path: path.resolve(__dirname, 'dist')
-	},
+	externals: nodeModules,
 
 	module: {
 		rules: [
@@ -29,9 +26,12 @@ module.exports = {
 		]
 	},
 
+	output: {
+		filename: 'index.js',
+		path: path.resolve(__dirname, 'dist')
+	},
+
+	plugins: [new UglifyJSPlugin()],
+
 	target: 'node',
-
-	externals: nodeModules,
-
-	plugins: [new UglifyJSPlugin()]
 };
