@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3001:3001"
-    image: jordan
+    image: abraham
     container_name: jordan
   node2:
     environment:
@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3002:3001"
-    image: scottie
+    image: issac
     container_name: scottie
     links:
       - node1:node1
@@ -28,7 +28,7 @@ services:
       dockerfile: Dockerfile
     ports:
     - "3003:3001"
-    image: rodman
+    image: jacob
     container_name: rodman
     links:
       - node2:node2
