@@ -1,6 +1,6 @@
 FROM node:latest
 
-WORKDIR /blockgang
+WORKDIR /
 
 COPY package.json .
 
