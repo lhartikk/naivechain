@@ -17,7 +17,7 @@ services:
     ports:
     - "3002:3001"
     image: issac
-    container_name: scottie
+    container_name: pippen
     links:
       - node1:node1
   node3:
