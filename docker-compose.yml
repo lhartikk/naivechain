@@ -19,7 +19,7 @@ services:
     image: issac
     container_name: scottie
     links:
-      - abraham:abraham
+      - node1:node1
   node3:
     environment:
       - PEERS=ws://node2:6001
@@ -31,4 +31,4 @@ services:
     image: jacob
     container_name: rodman
     links:
-      - issac:issac
+      - node2:node2
