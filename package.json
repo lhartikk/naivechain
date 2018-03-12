@@ -26,6 +26,7 @@
     "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
     "jest": "^22.4.2",
     "request": "^2.83.0",
     "rimraf": "^2.6.2",
