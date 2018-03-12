@@ -1,9 +1,19 @@
 {
   "name": "naivechain",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.2.0",
+  "description": "blockchain implementation in 200 lines 💻",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=8.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jhamPac/naivechain.git"
+  },
   "scripts": {
-    "start": "node main.js"
+    "start": "node compiled.js",
+    "test": "jest",
+    "build": "rimraf ./dist/* && NODE_ENV=production webpack --progress -p"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -11,7 +21,17 @@
     "express": "~4.11.1",
     "ws": "^1.1.0"
   },
-  "engines": {
-    "node": ">=4.3.2"
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^22.4.2",
+    "request": "^2.83.0",
+    "rimraf": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
   }
 }

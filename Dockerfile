@@ -1,12 +1,20 @@
-FROM node:4.6
+FROM node:9-alpine
 
-RUN mkdir /naivechain
-ADD package.json /naivechain/
-ADD main.js /naivechain/
+WORKDIR /
 
-RUN cd /naivechain && npm install
+COPY package.json .
 
-EXPOSE 3001
+COPY package-lock.json .
+
+COPY ./dist/compiled.js .
+
+RUN npm install --quiet
+
+COPY . .
+
+ENV PEERS=$PEERS
+
+EXPOSE 3000
 EXPOSE 6001
 
-ENTRYPOINT cd /naivechain && npm install && PEERS=$PEERS npm start
+CMD ["npm", "start"]
