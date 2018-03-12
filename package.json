@@ -1,6 +1,6 @@
 {
   "name": "naivechain",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "blockchain implementation in 200 lines 💻",
   "license": "Apache-2.0",
   "engines": {
