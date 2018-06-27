@@ -8,7 +8,7 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "crypto-js": "^3.1.6",
-    "express": "~4.11.1",
+    "express": "^4.16.3",
     "ws": "^1.1.0"
   },
   "engines": {
