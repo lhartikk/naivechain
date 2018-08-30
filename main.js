@@ -1,4 +1,5 @@
 'use strict';
+
 var CryptoJS = require("crypto-js");
 var express = require("express");
 var bodyParser = require('body-parser');
@@ -14,19 +15,31 @@ class Block {
         this.previousHash = previousHash.toString();
         this.timestamp = timestamp;
         this.data = data;
-        this.hash = hash.toString();
+        this.hash = hash ? hash.toString() : '';
     }
 }
 
 var sockets = [];
+
 var MessageType = {
     QUERY_LATEST: 0,
     QUERY_ALL: 1,
     RESPONSE_BLOCKCHAIN: 2
 };
 
+var calculateHashForBlock = (block) => {
+    return calculateHash(block.index, block.previousHash, block.timestamp, block.data);
+};
+
+var calculateHash = (index, previousHash, timestamp, data) => {
+    return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
+};
+
 var getGenesisBlock = () => {
-    return new Block(0, "0", 1465154705, "my genesis block!!", "816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7");
+    var block = new Block(0, "0", 1465154705, "my genesis block!!");
+    block.hash = calculateHash(block.index, block.previousHash, block.timestamp, block.data);
+
+    return block;
 };
 
 var blockchain = [getGenesisBlock()];
@@ -95,22 +108,12 @@ var initErrorHandler = (ws) => {
     ws.on('error', () => closeConnection(ws));
 };
 
-
 var generateNextBlock = (blockData) => {
     var previousBlock = getLatestBlock();
     var nextIndex = previousBlock.index + 1;
     var nextTimestamp = new Date().getTime() / 1000;
     var nextHash = calculateHash(nextIndex, previousBlock.hash, nextTimestamp, blockData);
     return new Block(nextIndex, previousBlock.hash, nextTimestamp, blockData, nextHash);
-};
-
-
-var calculateHashForBlock = (block) => {
-    return calculateHash(block.index, block.previousHash, block.timestamp, block.data);
-};
-
-var calculateHash = (index, previousHash, timestamp, data) => {
-    return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
 };
 
 var addBlock = (newBlock) => {
@@ -126,7 +129,7 @@ var isValidNewBlock = (newBlock, previousBlock) => {
     } else if (previousBlock.hash !== newBlock.previousHash) {
         console.log('invalid previoushash');
         return false;
-    } else if (calculateHashForBlock(newBlock) !== newBlock.hash) {
+    } else if (calculateHashForBlock(newBlock) !== newBlock.hash) { // TODO: remove repeated calc. hash
         console.log(typeof (newBlock.hash) + ' ' + typeof calculateHashForBlock(newBlock));
         console.log('invalid hash: ' + calculateHashForBlock(newBlock) + ' ' + newBlock.hash);
         return false;
@@ -195,7 +198,8 @@ var getLatestBlock = () => blockchain[blockchain.length - 1];
 var queryChainLengthMsg = () => ({'type': MessageType.QUERY_LATEST});
 var queryAllMsg = () => ({'type': MessageType.QUERY_ALL});
 var responseChainMsg = () =>({
-    'type': MessageType.RESPONSE_BLOCKCHAIN, 'data': JSON.stringify(blockchain)
+    'type': MessageType.RESPONSE_BLOCKCHAIN,
+    'data': JSON.stringify(blockchain)
 });
 var responseLatestMsg = () => ({
     'type': MessageType.RESPONSE_BLOCKCHAIN,
