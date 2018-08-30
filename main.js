@@ -129,10 +129,14 @@ var isValidNewBlock = (newBlock, previousBlock) => {
     } else if (previousBlock.hash !== newBlock.previousHash) {
         console.log('invalid previoushash');
         return false;
-    } else if (calculateHashForBlock(newBlock) !== newBlock.hash) { // TODO: remove repeated calc. hash
-        console.log(typeof (newBlock.hash) + ' ' + typeof calculateHashForBlock(newBlock));
-        console.log('invalid hash: ' + calculateHashForBlock(newBlock) + ' ' + newBlock.hash);
-        return false;
+    } else {
+        var hash = calculateHashForBlock(newBlock);
+
+        if (hash !== newBlock.hash) {
+            console.log(typeof (newBlock.hash) + ' ' + typeof (hash));
+            console.log('invalid hash: ' + hash + ' ' + newBlock.hash);
+            return false;
+        }
     }
     return true;
 };
